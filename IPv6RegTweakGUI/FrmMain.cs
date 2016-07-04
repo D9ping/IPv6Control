@@ -1,103 +1,78 @@
 ﻿using System;
+using System.Security;
 using System.Windows.Forms;
 
 namespace IPv6RegTweakGUI
 {
     public partial class FrmMain : Form
     {
+        private DisabledComponentValue disabledComponentValue;
+
         public FrmMain()
         {
             InitializeComponent();
+            this.disabledComponentValue = new DisabledComponentValue();
         }
 
-        private void SetBitDisableComponent(int position, bool enabled)
+        private void DisplayNewDisabledComponentValue()
         {
-            const int numbits = 8;
-            char[] binaryvalue = this.lblDisabledComponentBinary.Text.ToCharArray();
-            if (binaryvalue.Length != numbits)
-            {
-                return;
-            }
-
-            if (enabled)
-            {
-                binaryvalue[position] = '1';
-            }
-            else
-            {
-                binaryvalue[position] = '0';
-            }
-
-            double num = 0;
-            for (int p = 0; p < numbits; ++p)
-            {
-                if (binaryvalue[p] == '1')
-                {
-                    num += Math.Pow(2, p);
-                }
-            }
-
-            this.lblDisabledComponentBinary.Text = new string(binaryvalue);
-            string hexnum = ((int)num).ToString("X");
-            this.lblDisabledComponentHEX.Text = "0x";
-            if (hexnum.Length < 2) {
-                this.lblDisabledComponentHEX.Text += "0";
-            }
-
-            this.lblDisabledComponentHEX.Text += hexnum;
+            this.lblDisabledComponentHEX.Text = this.disabledComponentValue.GetHexdecValueStr();
         }
 
         private void chxDisableAllTransitionTechnologies_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(0, chx.Checked);
+            this.disabledComponentValue.DisableAllTransitionTechnologies = this.chxDisableAllTransitionTechnologies.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxDisable6to4_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(1, chx.Checked);
+            this.disabledComponentValue.Disable6to4 = this.chxDisable6to4.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxDisableISATAP_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(2, chx.Checked);
+            this.disabledComponentValue.DisableISATAP = this.chxDisableISATAP.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxDisableTeredo_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(3, chx.Checked);
+            this.disabledComponentValue.DisableTeredo = this.chxDisableTeredo.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxDisableIPv6OnAllNotTunnels_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(4, chx.Checked);
+            this.disabledComponentValue.DisableIPv6OnAllNotTunnels = this.chxDisableIPv6OnAllNotTunnels.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxPreferIPv4_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(5, chx.Checked);
+            this.disabledComponentValue.PreferIPv4 = this.chxPreferIPv4.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void chxDisableAllIpHttps_CheckedChanged(object sender, System.EventArgs e)
         {
-            CheckBox chx = (CheckBox)sender;
-            SetBitDisableComponent(7, chx.Checked);
+            this.disabledComponentValue.DisableAllIpHttps = this.chxDisableAllIpHttps.Checked;
+            this.DisplayNewDisabledComponentValue();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponent DWORD hexdec. value: "+this.lblDisabledComponentHEX.Text+" to Windows registery? A reboot is required for change to be applied.", "Sure?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexdec. value: "+this.lblDisabledComponentHEX.Text+" to Windows registery? A reboot is required for change to be applied.", "Apply settings?", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-
+            if (!this.disabledComponentValue.WriteRegisteryValue())
+            {
+                MessageBox.Show("Cannot open registery key need administrator privilege.", "No administrator privilege", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CheckboxesEnabledAll(bool enabled)

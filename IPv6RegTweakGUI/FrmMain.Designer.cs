@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.chxDisableAllTransitionTechnologies = new System.Windows.Forms.CheckBox();
             this.lblTextDisabledComponent = new System.Windows.Forms.Label();
-            this.lblDisabledComponentBinary = new System.Windows.Forms.Label();
             this.chxDisable6to4 = new System.Windows.Forms.CheckBox();
             this.chxDisableISATAP = new System.Windows.Forms.CheckBox();
             this.chxDisableTeredo = new System.Windows.Forms.CheckBox();
@@ -67,17 +66,6 @@
             this.lblTextDisabledComponent.TabIndex = 1;
             this.lblTextDisabledComponent.Text = "New DisabledComponent DWORD value:";
             this.lblTextDisabledComponent.UseCompatibleTextRendering = true;
-            // 
-            // lblDisabledComponentBinary
-            // 
-            this.lblDisabledComponentBinary.AutoSize = true;
-            this.lblDisabledComponentBinary.ForeColor = System.Drawing.Color.Silver;
-            this.lblDisabledComponentBinary.Location = new System.Drawing.Point(301, 208);
-            this.lblDisabledComponentBinary.Name = "lblDisabledComponentBinary";
-            this.lblDisabledComponentBinary.Size = new System.Drawing.Size(55, 17);
-            this.lblDisabledComponentBinary.TabIndex = 2;
-            this.lblDisabledComponentBinary.Text = "00000000";
-            this.lblDisabledComponentBinary.UseCompatibleTextRendering = true;
             // 
             // chxDisable6to4
             // 
@@ -212,7 +200,6 @@
             this.Controls.Add(this.chxDisableTeredo);
             this.Controls.Add(this.chxDisableISATAP);
             this.Controls.Add(this.chxDisable6to4);
-            this.Controls.Add(this.lblDisabledComponentBinary);
             this.Controls.Add(this.lblTextDisabledComponent);
             this.Controls.Add(this.chxDisableAllTransitionTechnologies);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -228,7 +215,6 @@
 
         private System.Windows.Forms.CheckBox chxDisableAllTransitionTechnologies;
         private System.Windows.Forms.Label lblTextDisabledComponent;
-        private System.Windows.Forms.Label lblDisabledComponentBinary;
         private System.Windows.Forms.CheckBox chxDisable6to4;
         private System.Windows.Forms.CheckBox chxDisableISATAP;
         private System.Windows.Forms.CheckBox chxDisableTeredo;
