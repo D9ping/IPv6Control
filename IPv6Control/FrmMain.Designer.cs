@@ -60,7 +60,7 @@
             this.lblTextDisabledComponent.AutoSize = true;
             this.lblTextDisabledComponent.CausesValidation = false;
             this.lblTextDisabledComponent.ForeColor = System.Drawing.Color.White;
-            this.lblTextDisabledComponent.Location = new System.Drawing.Point(46, 208);
+            this.lblTextDisabledComponent.Location = new System.Drawing.Point(46, 216);
             this.lblTextDisabledComponent.Name = "lblTextDisabledComponent";
             this.lblTextDisabledComponent.Size = new System.Drawing.Size(213, 17);
             this.lblTextDisabledComponent.TabIndex = 1;
@@ -150,7 +150,7 @@
             // 
             this.lblDisabledComponentHEX.AutoSize = true;
             this.lblDisabledComponentHEX.ForeColor = System.Drawing.Color.White;
-            this.lblDisabledComponentHEX.Location = new System.Drawing.Point(265, 208);
+            this.lblDisabledComponentHEX.Location = new System.Drawing.Point(265, 216);
             this.lblDisabledComponentHEX.Name = "lblDisabledComponentHEX";
             this.lblDisabledComponentHEX.Size = new System.Drawing.Size(29, 17);
             this.lblDisabledComponentHEX.TabIndex = 9;
@@ -163,7 +163,7 @@
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(251, 228);
+            this.btnSave.Location = new System.Drawing.Point(251, 240);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(190, 32);
             this.btnSave.TabIndex = 10;
@@ -176,7 +176,7 @@
             // 
             this.btnUncheckAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUncheckAll.ForeColor = System.Drawing.Color.White;
-            this.btnUncheckAll.Location = new System.Drawing.Point(46, 228);
+            this.btnUncheckAll.Location = new System.Drawing.Point(46, 240);
             this.btnUncheckAll.Name = "btnUncheckAll";
             this.btnUncheckAll.Size = new System.Drawing.Size(199, 32);
             this.btnUncheckAll.TabIndex = 11;
@@ -190,7 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(464, 262);
+            this.ClientSize = new System.Drawing.Size(464, 281);
             this.Controls.Add(this.btnUncheckAll);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblDisabledComponentHEX);
@@ -204,6 +204,7 @@
             this.Controls.Add(this.chxDisableAllTransitionTechnologies);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(240, 180);
             this.Name = "FrmMain";
             this.ResumeLayout(false);
             this.PerformLayout();
