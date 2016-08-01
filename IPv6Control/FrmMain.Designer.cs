@@ -1,4 +1,4 @@
-﻿namespace IPv6RegTweakGUI
+﻿namespace IPv6Control
 {
     partial class FrmMain
     {
@@ -205,7 +205,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "IPv6RegTweakGUI";
             this.ResumeLayout(false);
             this.PerformLayout();
 

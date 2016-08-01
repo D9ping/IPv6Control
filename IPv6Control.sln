@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv6RegTweakGUI", "IPv6RegTweakGUI\IPv6RegTweakGUI.csproj", "{314B509B-FCD3-406A-896B-8B6C71F2C0FE}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv6Control", "IPv6Control\IPv6Control.csproj", "{314B509B-FCD3-406A-896B-8B6C71F2C0FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Security;
 using System.Windows.Forms;
 
-namespace IPv6RegTweakGUI
+namespace IPv6Control
 {
     public partial class FrmMain : Form
     {
@@ -12,6 +12,7 @@ namespace IPv6RegTweakGUI
         {
             InitializeComponent();
             this.disabledComponentValue = new DisabledComponentValue();
+            this.Text = Program.AssemblyTitle + " v" + Program.AssemblyVersion;
         }
 
         private void DisplayNewDisabledComponentValue()

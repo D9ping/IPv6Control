@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security;
 using System.Text;
 
-namespace IPv6RegTweakGUI
+namespace IPv6Control
 {
     class DisabledComponentValue
     {

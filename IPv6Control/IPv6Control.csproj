@@ -7,8 +7,8 @@
     <ProjectGuid>{314B509B-FCD3-406A-896B-8B6C71F2C0FE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IPv6RegTweakGUI</RootNamespace>
-    <AssemblyName>IPv6RegTweakGUI</AssemblyName>
+    <RootNamespace>IPv6Control</RootNamespace>
+    <AssemblyName>IPv6Control</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
@@ -34,7 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>IPv6RegTweakGUI.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
