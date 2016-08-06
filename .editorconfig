@@ -1,0 +1,14 @@
+# The EditorConfig file for the IPv6Control project.
+# See http://editorconfig.org/ for more information on EditorConfig
+root = true
+
+[*]
+charset = "utf-8"
+end_of_line = "crlf"
+indent_style = "space"
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_size = 4
+indent_brace_style = Allman
