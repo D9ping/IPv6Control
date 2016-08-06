@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security;
 using System.Windows.Forms;
 
 namespace IPv6Control
@@ -8,11 +7,25 @@ namespace IPv6Control
     {
         private DisabledComponentValue disabledComponentValue;
 
+        /// <summary>
+        /// Creating a new instance of FrmMain class.
+        /// </summary>
         public FrmMain()
         {
             InitializeComponent();
             this.disabledComponentValue = new DisabledComponentValue();
             this.Text = Program.AssemblyTitle + " v" + Program.AssemblyVersion;
+            if (this.disabledComponentValue.LoadFromRegisteryValue())
+            {
+                this.DisplayNewDisabledComponentValue();
+                this.SetCheckboxesByDisabledComponentValue();
+            }
+            else
+            {
+                MessageBox.Show("Could not load current settings.\r\nAdministrator rights are required to read to the registery key.");
+            }
+
+            this.disabledComponentValue.DoCalculateValue = true;
         }
 
         private void DisplayNewDisabledComponentValue()
@@ -64,16 +77,32 @@ namespace IPv6Control
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexdec. value: "+this.lblDisabledComponentHEX.Text+" to Windows registery? A reboot is required for change to be applied.", "Apply settings?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexdec. value: " + this.lblDisabledComponentHEX.Text + " to Windows registery?\r\nA reboot is required for change to be applied.", 
+                "Apply settings?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            if (!this.disabledComponentValue.WriteRegisteryValue())
+            if (this.disabledComponentValue.WriteRegisteryValue())
+            {
+                MessageBox.Show("Writing settings succesfull.\r\nA reboot is required to apply new settings.", "Settings saved successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
             {
                 MessageBox.Show("Cannot open registery key need administrator privilege.", "No administrator privilege", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SetCheckboxesByDisabledComponentValue()
+        {
+            this.chxDisable6to4.Checked = this.disabledComponentValue.Disable6to4;
+            this.chxDisableAllIpHttps.Checked = this.disabledComponentValue.DisableAllIpHttps;
+            this.chxDisableAllTransitionTechnologies.Checked = this.disabledComponentValue.DisableAllTransitionTechnologies;
+            this.chxDisableIPv6OnAllNotTunnels.Checked = this.disabledComponentValue.DisableIPv6OnAllNotTunnels;
+            this.chxDisableISATAP.Checked = this.disabledComponentValue.DisableISATAP;
+            this.chxDisableTeredo.Checked = this.disabledComponentValue.DisableTeredo;
+            this.chxPreferIPv4.Checked = this.disabledComponentValue.PreferIPv4;
         }
 
         private void CheckboxesEnabledAll(bool enabled)
