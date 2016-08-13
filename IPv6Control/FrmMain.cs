@@ -20,10 +20,6 @@ namespace IPv6Control
                 this.DisplayNewDisabledComponentValue();
                 this.SetCheckboxesByDisabledComponentValue();
             }
-            else
-            {
-                MessageBox.Show("Could not load current settings.\r\nAdministrator rights are required to read to the registery key.");
-            }
 
             this.disabledComponentValue.DoCalculateValue = true;
         }
@@ -77,7 +73,7 @@ namespace IPv6Control
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexadecimal value: " + this.lblDisabledComponentHEX.Text + " to Windows registery?\r\nIf registery value already exists the old value will be overwritten.", 
+            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexadecimal value: " + this.lblDisabledComponentHEX.Text + " to Windows registery?\r\nIf registery value already exists the old value will be overwritten.",
                 "Apply settings?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
