@@ -238,62 +238,71 @@ namespace IPv6Control
                 return false;
             }
 
-            bool loadsucceeded = false;
+            Object objDisabledComponents = null;
             try
             {
-                Object objDisabledComponents = keyip6param.GetValue("DisabledComponents");
-                UInt32 newdecvalue;
-                if (UInt32.TryParse(objDisabledComponents.ToString(), out newdecvalue))
-                {
-                    this.decvalue = newdecvalue;
-                    if (newdecvalue - 128 <= 255)
-                    {
-                        newdecvalue -= 128;
-                        this.DisableAllIpHttps = true;
-                    }
-
-                    if (newdecvalue - 32 <= 255)
-                    {
-                        newdecvalue -= 32;
-                        this.preferIPv4 = true;
-                    }
-
-                    if (newdecvalue - 16 <= 255)
-                    {
-                        newdecvalue -= 16;
-                        this.DisableIPv6OnAllNotTunnels = true;
-                    }
-
-                    if (newdecvalue - 8 <= 255)
-                    {
-                        newdecvalue -= 8;
-                        this.DisableTeredo = true;
-                    }
-
-                    if (newdecvalue - 4 <= 255)
-                    {
-                        newdecvalue -= 4;
-                        this.DisableISATAP = true;
-                    }
-
-                    if (newdecvalue - 2 <= 255)
-                    {
-                        newdecvalue -= 2;
-                        this.Disable6to4 = true;
-                    }
-
-                    if (newdecvalue - 1 <= 255)
-                    {
-                        newdecvalue -= 1;
-                        this.DisableAllTransitionTechnologies = true;
-                    }
-
-                    loadsucceeded = true;
-                }
-            } catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                objDisabledComponents = keyip6param.GetValue("DisabledComponents");
             }
+            catch (ObjectDisposedException)
+            {
+                return false;
+            }
+
+            if (objDisabledComponents == null)
+            {
+                return false;
+            }
+
+            bool loadsucceeded = false;
+            UInt32 newdecvalue;
+            if (UInt32.TryParse(objDisabledComponents.ToString(), out newdecvalue))
+            {
+                this.decvalue = newdecvalue;
+                if (newdecvalue - 128 <= 255)
+                {
+                    newdecvalue -= 128;
+                    this.DisableAllIpHttps = true;
+                }
+
+                if (newdecvalue - 32 <= 255)
+                {
+                    newdecvalue -= 32;
+                    this.preferIPv4 = true;
+                }
+
+                if (newdecvalue - 16 <= 255)
+                {
+                    newdecvalue -= 16;
+                    this.DisableIPv6OnAllNotTunnels = true;
+                }
+
+                if (newdecvalue - 8 <= 255)
+                {
+                    newdecvalue -= 8;
+                    this.DisableTeredo = true;
+                }
+
+                if (newdecvalue - 4 <= 255)
+                {
+                    newdecvalue -= 4;
+                    this.DisableISATAP = true;
+                }
+
+                if (newdecvalue - 2 <= 255)
+                {
+                    newdecvalue -= 2;
+                    this.Disable6to4 = true;
+                }
+
+                if (newdecvalue - 1 <= 255)
+                {
+                    newdecvalue -= 1;
+                    this.DisableAllTransitionTechnologies = true;
+                }
+
+                loadsucceeded = true;
+            }
+
 
             return loadsucceeded;
         }
