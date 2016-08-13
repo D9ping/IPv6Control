@@ -77,7 +77,7 @@ namespace IPv6Control
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexdec. value: " + this.lblDisabledComponentHEX.Text + " to Windows registery?\r\nA reboot is required for change to be applied.", 
+            DialogResult result = MessageBox.Show("Are you sure you want to write the new DisabledComponents DWORD hexadecimal value: " + this.lblDisabledComponentHEX.Text + " to Windows registery?\r\nIf registery value already exists the old value will be overwritten.", 
                 "Apply settings?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
@@ -86,7 +86,7 @@ namespace IPv6Control
 
             if (this.disabledComponentValue.WriteRegisteryValue())
             {
-                MessageBox.Show("Writing settings succesfull.\r\nA reboot is required to apply new settings.", "Settings saved successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Writing settings was succesfull.\r\nA reboot is required to apply new settings.", "Settings saved successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
