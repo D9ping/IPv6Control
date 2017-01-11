@@ -40,6 +40,8 @@
             this.lblDisabledComponentHEX = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnUncheckAll = new System.Windows.Forms.Button();
+            this.lblCurrentDisabledComponentValue = new System.Windows.Forms.Label();
+            this.lblCurrentDisabledComponentHEX = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chxDisableAllTransitionTechnologies
@@ -60,7 +62,7 @@
             this.lblTextDisabledComponent.AutoSize = true;
             this.lblTextDisabledComponent.CausesValidation = false;
             this.lblTextDisabledComponent.ForeColor = System.Drawing.Color.White;
-            this.lblTextDisabledComponent.Location = new System.Drawing.Point(46, 216);
+            this.lblTextDisabledComponent.Location = new System.Drawing.Point(46, 225);
             this.lblTextDisabledComponent.Name = "lblTextDisabledComponent";
             this.lblTextDisabledComponent.Size = new System.Drawing.Size(213, 17);
             this.lblTextDisabledComponent.TabIndex = 1;
@@ -150,7 +152,7 @@
             // 
             this.lblDisabledComponentHEX.AutoSize = true;
             this.lblDisabledComponentHEX.ForeColor = System.Drawing.Color.White;
-            this.lblDisabledComponentHEX.Location = new System.Drawing.Point(265, 216);
+            this.lblDisabledComponentHEX.Location = new System.Drawing.Point(277, 225);
             this.lblDisabledComponentHEX.Name = "lblDisabledComponentHEX";
             this.lblDisabledComponentHEX.Size = new System.Drawing.Size(29, 17);
             this.lblDisabledComponentHEX.TabIndex = 9;
@@ -163,7 +165,7 @@
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(251, 240);
+            this.btnSave.Location = new System.Drawing.Point(251, 262);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(190, 32);
             this.btnSave.TabIndex = 10;
@@ -176,7 +178,7 @@
             // 
             this.btnUncheckAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUncheckAll.ForeColor = System.Drawing.Color.White;
-            this.btnUncheckAll.Location = new System.Drawing.Point(46, 240);
+            this.btnUncheckAll.Location = new System.Drawing.Point(46, 262);
             this.btnUncheckAll.Name = "btnUncheckAll";
             this.btnUncheckAll.Size = new System.Drawing.Size(199, 32);
             this.btnUncheckAll.TabIndex = 11;
@@ -185,12 +187,37 @@
             this.btnUncheckAll.UseVisualStyleBackColor = true;
             this.btnUncheckAll.Click += new System.EventHandler(this.btnUncheckAll_Click);
             // 
+            // lblCurrentDisabledComponentValue
+            // 
+            this.lblCurrentDisabledComponentValue.AutoSize = true;
+            this.lblCurrentDisabledComponentValue.CausesValidation = false;
+            this.lblCurrentDisabledComponentValue.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblCurrentDisabledComponentValue.Location = new System.Drawing.Point(46, 208);
+            this.lblCurrentDisabledComponentValue.Name = "lblCurrentDisabledComponentValue";
+            this.lblCurrentDisabledComponentValue.Size = new System.Drawing.Size(228, 17);
+            this.lblCurrentDisabledComponentValue.TabIndex = 12;
+            this.lblCurrentDisabledComponentValue.Text = "Current DisabledComponent DWORD value:";
+            this.lblCurrentDisabledComponentValue.UseCompatibleTextRendering = true;
+            // 
+            // lblCurrentDisabledComponentHEX
+            // 
+            this.lblCurrentDisabledComponentHEX.AutoSize = true;
+            this.lblCurrentDisabledComponentHEX.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblCurrentDisabledComponentHEX.Location = new System.Drawing.Point(277, 208);
+            this.lblCurrentDisabledComponentHEX.Name = "lblCurrentDisabledComponentHEX";
+            this.lblCurrentDisabledComponentHEX.Size = new System.Drawing.Size(29, 17);
+            this.lblCurrentDisabledComponentHEX.TabIndex = 13;
+            this.lblCurrentDisabledComponentHEX.Text = "0x00";
+            this.lblCurrentDisabledComponentHEX.UseCompatibleTextRendering = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(464, 281);
+            this.ClientSize = new System.Drawing.Size(464, 301);
+            this.Controls.Add(this.lblCurrentDisabledComponentHEX);
+            this.Controls.Add(this.lblCurrentDisabledComponentValue);
             this.Controls.Add(this.btnUncheckAll);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblDisabledComponentHEX);
@@ -204,7 +231,7 @@
             this.Controls.Add(this.chxDisableAllTransitionTechnologies);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(240, 180);
+            this.MinimumSize = new System.Drawing.Size(480, 340);
             this.Name = "FrmMain";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,6 +251,8 @@
         private System.Windows.Forms.Label lblDisabledComponentHEX;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnUncheckAll;
+        private System.Windows.Forms.Label lblCurrentDisabledComponentValue;
+        private System.Windows.Forms.Label lblCurrentDisabledComponentHEX;
     }
 }
 

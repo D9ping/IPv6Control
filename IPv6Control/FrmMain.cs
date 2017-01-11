@@ -17,6 +17,7 @@ namespace IPv6Control
             this.Text = Program.AssemblyTitle + " v" + Program.AssemblyVersion;
             if (this.disabledComponentValue.LoadFromRegisteryValue())
             {
+                this.lblCurrentDisabledComponentHEX.Text = this.disabledComponentValue.GetHexdecValueStr();
                 this.DisplayNewDisabledComponentValue();
                 this.SetCheckboxesByDisabledComponentValue();
             }
@@ -82,6 +83,16 @@ namespace IPv6Control
 
             if (this.disabledComponentValue.WriteRegisteryValue())
             {
+
+                if (!this.lblCurrentDisabledComponentHEX.Text.Equals(this.lblDisabledComponentHEX.Text, StringComparison.Ordinal))
+                {
+                    this.lblCurrentDisabledComponentHEX.Text = this.lblDisabledComponentHEX.Text + " (reboot needed)";
+                }
+                else
+                {
+                    this.lblCurrentDisabledComponentHEX.Text = this.lblDisabledComponentHEX.Text;
+                }
+
                 MessageBox.Show("Writing settings was succesfull.\r\nA reboot is required to apply new settings.", "Settings saved successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
