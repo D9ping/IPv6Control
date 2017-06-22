@@ -33,6 +33,16 @@ namespace IPv6Control
         private void chxDisableAllTransitionTechnologies_CheckedChanged(object sender, System.EventArgs e)
         {
             this.disabledComponentValue.DisableAllTransitionTechnologies = this.chxDisableAllTransitionTechnologies.Checked;
+            this.chxDisable6to4.Enabled = !this.chxDisableAllTransitionTechnologies.Checked;
+            this.chxDisableISATAP.Enabled = !this.chxDisableAllTransitionTechnologies.Checked;
+            this.chxDisableTeredo.Enabled = !this.chxDisableAllTransitionTechnologies.Checked;
+            if (this.chxDisableAllTransitionTechnologies.Checked)
+            {
+                this.chxDisable6to4.Checked = false;
+                this.chxDisableISATAP.Checked = false;
+                this.chxDisableTeredo.Checked = false;
+            }
+
             this.DisplayNewDisabledComponentValue();
         }
 

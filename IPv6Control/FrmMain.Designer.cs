@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.chxDisableAllTransitionTechnologies = new System.Windows.Forms.CheckBox();
             this.lblTextDisabledComponent = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.btnUncheckAll = new System.Windows.Forms.Button();
             this.lblCurrentDisabledComponentValue = new System.Windows.Forms.Label();
             this.lblCurrentDisabledComponentHEX = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // chxDisableAllTransitionTechnologies
@@ -50,9 +52,12 @@
             this.chxDisableAllTransitionTechnologies.ForeColor = System.Drawing.Color.White;
             this.chxDisableAllTransitionTechnologies.Location = new System.Drawing.Point(25, 21);
             this.chxDisableAllTransitionTechnologies.Name = "chxDisableAllTransitionTechnologies";
-            this.chxDisableAllTransitionTechnologies.Size = new System.Drawing.Size(394, 18);
+            this.chxDisableAllTransitionTechnologies.Size = new System.Drawing.Size(391, 18);
             this.chxDisableAllTransitionTechnologies.TabIndex = 0;
-            this.chxDisableAllTransitionTechnologies.Text = "Disable all tunnel interfaces, including: ISATAP, 6to4, and Teredo tunnels.";
+            this.chxDisableAllTransitionTechnologies.Text = "Disable all tunnel interfaces, including: 6to4, ISATAP and Teredo tunnels.";
+            this.toolTip1.SetToolTip(this.chxDisableAllTransitionTechnologies, "Checking this checkbox will disable several IPv6 transition technologies includin" +
+        "g ISAP, 6to4 and Teredo.\r\nIf you have a native IPv6 address then native IPv6 sho" +
+        "uld still be available for you.");
             this.chxDisableAllTransitionTechnologies.UseCompatibleTextRendering = true;
             this.chxDisableAllTransitionTechnologies.UseVisualStyleBackColor = true;
             this.chxDisableAllTransitionTechnologies.CheckedChanged += new System.EventHandler(this.chxDisableAllTransitionTechnologies_CheckedChanged);
@@ -78,6 +83,7 @@
             this.chxDisable6to4.Size = new System.Drawing.Size(191, 18);
             this.chxDisable6to4.TabIndex = 3;
             this.chxDisable6to4.Text = "Disable all 6to4-based interfaces.";
+            this.toolTip1.SetToolTip(this.chxDisable6to4, resources.GetString("chxDisable6to4.ToolTip"));
             this.chxDisable6to4.UseCompatibleTextRendering = true;
             this.chxDisable6to4.UseVisualStyleBackColor = true;
             this.chxDisable6to4.CheckedChanged += new System.EventHandler(this.chxDisable6to4_CheckedChanged);
@@ -91,6 +97,9 @@
             this.chxDisableISATAP.Size = new System.Drawing.Size(209, 18);
             this.chxDisableISATAP.TabIndex = 4;
             this.chxDisableISATAP.Text = "Disable all ISATAP-based interfaces.";
+            this.toolTip1.SetToolTip(this.chxDisableISATAP, "Intra-Site Automatic Tunnel Addressing Protocol or ISATAP for short, is an IPv6 t" +
+        "ransition mechanism \r\nmeant to transmit IPv6 packets between dual-stack nodes on" +
+        " top of an IPv4 network.");
             this.chxDisableISATAP.UseCompatibleTextRendering = true;
             this.chxDisableISATAP.UseVisualStyleBackColor = true;
             this.chxDisableISATAP.CheckedChanged += new System.EventHandler(this.chxDisableISATAP_CheckedChanged);
@@ -104,6 +113,7 @@
             this.chxDisableTeredo.Size = new System.Drawing.Size(204, 18);
             this.chxDisableTeredo.TabIndex = 5;
             this.chxDisableTeredo.Text = "Disable all Teredo-based interfaces.";
+            this.toolTip1.SetToolTip(this.chxDisableTeredo, resources.GetString("chxDisableTeredo.ToolTip"));
             this.chxDisableTeredo.UseCompatibleTextRendering = true;
             this.chxDisableTeredo.UseVisualStyleBackColor = true;
             this.chxDisableTeredo.CheckedChanged += new System.EventHandler(this.chxDisableTeredo_CheckedChanged);
@@ -144,6 +154,7 @@
             this.chxDisableAllIpHttps.Size = new System.Drawing.Size(220, 18);
             this.chxDisableAllIpHttps.TabIndex = 8;
             this.chxDisableAllIpHttps.Text = "Disable all IP-HTTPS-based interfaces.";
+            this.toolTip1.SetToolTip(this.chxDisableAllIpHttps, resources.GetString("chxDisableAllIpHttps.ToolTip"));
             this.chxDisableAllIpHttps.UseCompatibleTextRendering = true;
             this.chxDisableAllIpHttps.UseVisualStyleBackColor = true;
             this.chxDisableAllIpHttps.CheckedChanged += new System.EventHandler(this.chxDisableAllIpHttps_CheckedChanged);
@@ -183,6 +194,7 @@
             this.btnUncheckAll.Size = new System.Drawing.Size(199, 32);
             this.btnUncheckAll.TabIndex = 11;
             this.btnUncheckAll.Text = "&Uncheck all";
+            this.toolTip1.SetToolTip(this.btnUncheckAll, "Resets new DisabledComponent value to 0x00.");
             this.btnUncheckAll.UseCompatibleTextRendering = true;
             this.btnUncheckAll.UseVisualStyleBackColor = true;
             this.btnUncheckAll.Click += new System.EventHandler(this.btnUncheckAll_Click);
@@ -253,6 +265,7 @@
         private System.Windows.Forms.Button btnUncheckAll;
         private System.Windows.Forms.Label lblCurrentDisabledComponentValue;
         private System.Windows.Forms.Label lblCurrentDisabledComponentHEX;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
