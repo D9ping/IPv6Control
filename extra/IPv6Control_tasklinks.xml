@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<applications xmlns="http://schemas.microsoft.com/windows/cpltasks/v1"
+              xmlns:sh="http://schemas.microsoft.com/windows/tasks/v1">
+  <application id="{CB21FCC9-FCFB-44AD-BD54-7890092DD08F}">
+    <sh:task id="{1175A7AE-C4E4-4E5A-9420-7CECCDA75425}">
+      <sh:name>IPv6Control</sh:name>
+      <sh:keywords>IPv6</sh:keywords>
+      <sh:command>C:\Program Files\IPv6Control\IPv6Control.exe</sh:command>
+    </sh:task>
+    <category id="3">
+      <sh:task idref="{1175A7AE-C4E4-4E5A-9420-7CECCDA75425}"/>
+    </category>
+  </application>
+</applications>

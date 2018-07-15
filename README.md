@@ -1,4 +1,4 @@
-IPv6Control Repo
+IPv6Control
 ============
 
 [<img src="https://img.shields.io/github/release/D9ping/IPv6Control.svg?style=flat-square" alt="Latest Release" />](https://github.com/D9ping/IPv6Control/releases) 
@@ -8,11 +8,11 @@ IPv6Control Repo
 
 The sourcecode of IPv6Control. 
 IPv6Control is a Windows application to make it easy to configure advance Microsoft Windows IPv6 settings. 
-Currently IPv6Control can be used to disable or enable IPv6 transition technologies on Microsoft Windows.
-
+Currently IPv6Control can be used to disable or to enable IPv6 transition technologies on Microsoft Windows.
+IPv6Control can be used to disable or to enable the following IPv6 transition technologies on Microsoft Windows.
+* Teredo
+* ISATAP
+* 6to4
+* IP-HTTPS (IPv6 over https)
 ### Issues
-Content requests, bugs, etc. are all handled through [Github Issues](https://github.com/D9ping/IPv6RegTweakGUI/issues).
-I will try to get to your issue as soon as possible. 
-
-### Pull Requests
-If you have a simple change, we ask that you put in a pull request instead of an issue. 
+Feature requests, bug reports etc. are all handled through [Github Issues](https://github.com/D9ping/IPv6RegTweakGUI/issues).
