@@ -16,7 +16,7 @@ IPv6Control can be used to disable or to enable the following IPv6 transition te
 - IP-HTTPS (IPv6 over https);
 
 ### Why might I want to disable (some of) these IPv6 technologies?
-IPv6 transition technologies can create additional security risks by creating an increases the attack surface.
+IPv6 transition technologies can create additional security risks by creating an increased the attack surface.
 When you already have a native IPv6 address assigned then there is no need to run these transition technologies.
 Also, the Teredo IPv6 transition technology is designed to bypass the NAT/router firewall.
 
